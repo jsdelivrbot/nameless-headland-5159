@@ -5,7 +5,18 @@ MyApp.addRegions({
 });
 
 MyApp.addInitializer( function(options) {
-  console.log("It's working!");
+
+  console.log("building games collection");
+  games = new Games();
+  games.fetch({
+    async: false
+  });
+
+  console.log("building games view");
+  gamesView = new GamesView({
+    collection: games
+  });
+  this.mainRegion.show( gamesView );
 });
 
 $(document).ready(function() {
