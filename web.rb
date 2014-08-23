@@ -19,8 +19,12 @@ class App < Sinatra::Base
     js :helpers, [
       '/js/Helpers/*.js'
     ]
-    js :application, [
-      '/js/TheMoveList.js'
+    js :the_move_list, [
+      '/js/Models/Game.js',
+      '/js/Collections/Games.js',
+      '/js/Views/GameView.js',
+      '/js/Views/GamesView.js',
+      '/js/Applications/TheMoveList.js'
     ]
 
     # compress for production
