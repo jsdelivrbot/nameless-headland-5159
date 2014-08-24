@@ -22,5 +22,3 @@ MyApp.addInitializer( function(options) {
 $(document).ready(function() {
   MyApp.start();
 });
-
-

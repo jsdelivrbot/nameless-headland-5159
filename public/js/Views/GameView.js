@@ -1,5 +1,8 @@
 GameView = Backbone.Marionette.ItemView.extend({
-  template: Templite("<%= args.id %>"),
+  tagName: function(){
+    return "option value=" + this.model.id;
+  },
+  template: Templite("<%= args.name %>"),
   initialize: function() {
     console.log("Creating a Game View");
   }
