@@ -9,15 +9,19 @@ class App < Sinatra::Base
   assets do
     # asset management with sinatra/assetpack
     serve '/js', :from => 'public/js'
+    serve '/templates', :from => 'public/templates'
 
     js :vendors, [
       '/js/vendors/underscore.js',
       '/js/vendors/jquery.js',
       '/js/vendors/backbone.js',
-      '/js/vendors/backbone.marionette.js'
+      '/js/vendors/backbone.marionette.js',
     ]
     js :helpers, [
       '/js/Helpers/*.js'
+    ]
+    htm :templates, [
+      '/templates/*.html'
     ]
     js :the_move_list, [
       '/js/Models/Game.js',
