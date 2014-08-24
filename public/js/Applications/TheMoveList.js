@@ -15,7 +15,7 @@ MyApp.addInitializer( function(options) {
   });
 
   console.log("building games view");
-  gamesView = new GamesView({
+  gamesView = new GamesDropdown({
     collection: games
   });
   this.gameSelector.show( gamesView );
