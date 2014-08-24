@@ -32,7 +32,7 @@ class App < Sinatra::Base
     ]
 
     # compress for production
-    #js_compression :jsmin
+    js_compression :jsmin
   end
 
   # bind to all address on machine (for development)
