@@ -22,8 +22,12 @@ class App < Sinatra::Base
     js :the_move_list, [
       '/js/Models/Game.js',
       '/js/Collections/Games.js',
-      '/js/Views/GameView.js',
-      '/js/Views/GamesView.js',
+      '/js/Views/GameOption.js',
+      '/js/Views/GamesDropdown.js',
+      '/js/Models/Character.js',
+      '/js/Collections/Characters.js',
+      '/js/Views/CharacterOption.js',
+      '/js/Views/CharactersDropdown.js',
       '/js/Applications/TheMoveList.js'
     ]
 

@@ -15,10 +15,21 @@ MyApp.addInitializer( function(options) {
   });
 
   console.log("building games view");
-  gamesView = new GamesView({
+  gamesDropdown = new GamesDropdown({
     collection: games
   });
-  this.gameSelector.show( gamesView );
+  this.gameSelector.show( gamesDropdown );
+
+});
+
+MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
+MyApp.gameStation.vent.on("game:selected", function(game) {
+  console.log("The App knows that "+game.id+" was selected!");
+  characters = new Characters(game.get("characters"));
+  charactersDropdown = new CharactersDropdown({
+    collection: characters
+  });
+  MyApp.characterSelector.show( charactersDropdown );
 });
 
 $(document).ready(function() {
