@@ -1,7 +1,9 @@
 MyApp = new Backbone.Marionette.Application();
 
 MyApp.addRegions({
-  mainRegion: "#content"
+  gameSelector: "#game-selector",
+  characterSelector: "#character-selector",
+  characters: "#characters"
 });
 
 MyApp.addInitializer( function(options) {
@@ -16,11 +18,9 @@ MyApp.addInitializer( function(options) {
   gamesView = new GamesView({
     collection: games
   });
-  this.mainRegion.show( gamesView );
+  this.gameSelector.show( gamesView );
 });
 
 $(document).ready(function() {
   MyApp.start();
 });
-
-
