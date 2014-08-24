@@ -24,6 +24,8 @@ class App < Sinatra::Base
       '/js/Collections/Games.js',
       '/js/Views/GameOption.js',
       '/js/Views/GamesDropdown.js',
+      '/js/Models/Character.js',
+      '/js/Collections/Characters.js',
       '/js/Views/CharacterOption.js',
       '/js/Views/CharactersDropdown.js',
       '/js/Applications/TheMoveList.js'

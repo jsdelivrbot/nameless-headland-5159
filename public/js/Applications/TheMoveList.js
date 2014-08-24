@@ -25,9 +25,9 @@ MyApp.addInitializer( function(options) {
 MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
 MyApp.gameStation.vent.on("game:selected", function(game) {
   console.log("The App knows that "+game.id+" was selected!");
-  characters = new Characters(game);
+  characters = new Characters(game.get("characters"));
   charactersDropdown = new CharactersDropdown({
-    collection:
+    collection: characters
   });
   MyApp.characterSelector.show( charactersDropdown );
 });
