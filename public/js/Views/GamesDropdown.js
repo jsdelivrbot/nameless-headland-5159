@@ -18,6 +18,7 @@ GamesDropdown = Backbone.Marionette.CompositeView.extend({
       console.log("selected: " + gameId);
       this.collection.get(gameId).fetch();
       console.log(this.collection.get(gameId));
+      MyApp.gameStation.vent.trigger("game:selected", gameId);
     }
   }
 });

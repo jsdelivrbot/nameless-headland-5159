@@ -19,6 +19,12 @@ MyApp.addInitializer( function(options) {
     collection: games
   });
   this.gameSelector.show( gamesView );
+
+});
+
+MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
+MyApp.gameStation.vent.on("game:selected", function(game) {
+  console.log("The App knows that a "+game+" was selected!");
 });
 
 $(document).ready(function() {
