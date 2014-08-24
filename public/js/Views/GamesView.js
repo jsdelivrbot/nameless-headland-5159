@@ -9,7 +9,9 @@ GamesView = Backbone.Marionette.CompositeView.extend({
     "change" : "selectItem"
   },
   selectItem: function(){
-    console.log("selected: " + $(".game-dropdown").val());
-
+    var gameId = $(".game-dropdown").val();
+    console.log("selected: " + gameId);
+    this.collection.get(gameId).fetch();
+    console.log(this.collection.get(gameId));
   }
 });
