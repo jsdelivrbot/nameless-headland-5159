@@ -1,0 +1,9 @@
+.character-table {
+  float: left;
+}
+.move-name {
+  text-align: right;
+}
+th {
+  text-align: left;
+}

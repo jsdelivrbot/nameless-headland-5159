@@ -2,9 +2,7 @@ CharactersDropdown = Backbone.Marionette.CompositeView.extend({
   childView: CharacterOption,
   childViewContainer: "select",
   template: Templite(
-    '<select class="character-dropdown"> \
-    <option selected="selected">All</option> \
-    </select>'
+    '<select class="character-dropdown"><option selected="selected">All</option></select>'
   ),
   initialize: function() {
     console.log("Creating new Characters Dropdown View");

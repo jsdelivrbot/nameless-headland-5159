@@ -19,20 +19,24 @@ class App < Sinatra::Base
     js :helpers, [
       '/js/Helpers/*.js'
     ]
-    js :the_move_list, [
+    js :backbone, [
       '/js/Models/Game.js',
       '/js/Collections/Games.js',
-      '/js/Views/GameOption.js',
-      '/js/Views/GamesDropdown.js',
-      '/js/Models/Move.js',
-      '/js/Collections/Moves.js',
       '/js/Models/Character.js',
       '/js/Collections/Characters.js',
+      '/js/Models/Move.js',
+      '/js/Collections/Moves.js'
+    ]
+    js :views, [
+      '/js/Views/GameOption.js',
+      '/js/Views/GamesDropdown.js',
       '/js/Views/CharacterOption.js',
       '/js/Views/CharactersDropdown.js',
       '/js/Views/MoveView.js',
       '/js/Views/CharacterView.js',
-      '/js/Views/CharacterCabinet.js',
+      '/js/Views/CharacterCabinet.js'
+    ]
+    js :the_move_list, [
       '/js/Applications/TheMoveList.js'
     ]
 
