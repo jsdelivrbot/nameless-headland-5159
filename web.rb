@@ -9,6 +9,11 @@ class App < Sinatra::Base
   assets do
     # asset management with sinatra/assetpack
     serve '/js', :from => 'public/js'
+    serve '/css', :from => 'public/css'
+
+    css :styles, [
+      '/css/style.css'
+    ]
 
     js :vendors, [
       '/js/vendors/underscore.js',

@@ -4,6 +4,6 @@
 .move-name {
   text-align: right;
 }
-th {
-  text-align: left;
+tr.super {
+  background: green;
 }
