@@ -64,6 +64,18 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     collection: characters
   });
   MyApp.characters.show( characterCab );
+
+  if ($("#move-type-style").length > 0){
+    document.getElementById("move-type-style").remove();
+  }
+  var moveTypeMap = MyApp.games.get(gameId).get("move_types");
+  var css = document.createElement("style");
+  css.id = "move-type-style";
+  css.type = "text/css";
+  for (move in moveTypeMap){
+    css.innerHTML += "tr." + move + "{background:" + moveTypeMap[move] + ";}";
+  };
+  document.head.appendChild(css);
 });
 
 MyApp.gameStation.vent.on("character:selected", function(characterId) {
