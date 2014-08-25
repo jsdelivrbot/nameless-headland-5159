@@ -1,9 +1,9 @@
 MoveView = Backbone.Marionette.ItemView.extend({
-  tagName: 'tr class="move-element"',
+  tagName: 'tr class="move-element" class="<%= args.move_type %>"',
   template: Templite(
-    '<td><%= args.name %></td> \
-    <td><%= args.exec %></td> \
-    <td><%= args.notes %></td> \
+    '<td class="move-name"><%= args.name %></td> \
+    <td class="move-note">(<%= args.note %>)</td> \
+    <td class="move-exec"><%= args.exec %></td> \
     '
     ),
   initialize: function() {
