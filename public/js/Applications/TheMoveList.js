@@ -9,13 +9,13 @@ MyApp.addRegions({
 MyApp.addInitializer( function(options) {
 
   console.log("building games collection");
-  games = new Games();
+  var games = new Games();
   games.fetch({
     async: false
   });
 
   console.log("building games view");
-  gamesDropdown = new GamesDropdown({
+  var gamesDropdown = new GamesDropdown({
     collection: games
   });
   this.gameSelector.show( gamesDropdown );
@@ -25,11 +25,15 @@ MyApp.addInitializer( function(options) {
 MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
 MyApp.gameStation.vent.on("game:selected", function(game) {
   console.log("The App knows that "+game.id+" was selected!");
-  characters = new Characters(game.get("characters"));
-  charactersDropdown = new CharactersDropdown({
+  var characters = new Characters(game.get("characters"));
+  var charactersDropdown = new CharactersDropdown({
     collection: characters
   });
   MyApp.characterSelector.show( charactersDropdown );
+  var characterCab = new CharacterCabinet({
+    collection: characters
+  });
+  MyApp.characters.show( characterCab );
 });
 
 $(document).ready(function() {
