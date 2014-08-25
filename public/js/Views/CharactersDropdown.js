@@ -14,6 +14,7 @@ CharactersDropdown = Backbone.Marionette.CompositeView.extend({
     var characterName = $(".character-dropdown").val();
     if (characterName !== "All") {
       console.log("selected: " + characterName);
+      MyApp.gameStation.vent.trigger("character:selected", characterName);
     }
   }
 });

@@ -53,6 +53,14 @@ class App < Sinatra::Base
   set :bind, '0.0.0.0'
 
   get '/' do
-    erb :index
+    erb :index, locals: {game: "", character: ""}
+  end
+
+  get '/:game' do
+    erb :index, locals: {game: params[:game], character: ""}
+  end
+
+  get '/:game/:character' do
+    erb :index, locals: {game: params[:game], character: params[:character]}
   end
 end

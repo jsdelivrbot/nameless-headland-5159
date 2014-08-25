@@ -14,12 +14,7 @@ GamesDropdown = Backbone.Marionette.CompositeView.extend({
     var gameId = $(".game-dropdown").val();
     if (gameId !== "Select Game") {
       console.log("selected: " + gameId);
-      this.collection.get(gameId).fetch({
-        async: false
-      });
-      var selectedGame = this.collection.get(gameId);
-      console.log(selectedGame);
-      MyApp.gameStation.vent.trigger("game:selected", selectedGame);
+      MyApp.gameStation.vent.trigger("game:selected", gameId);
     }
   }
 });

@@ -23,10 +23,16 @@
     <!-- Marionette-Application -->
     <%= js :the_move_list %>
 
-
   </head>
 
   <body>
+
+    <!-- Locals -->
+    <div class="local-data"
+        game-data-id="<%= game %>"
+        character-data-id="<%= character %>">
+    </div>
+
     <div class="title">
       The Command List
       by Jesse and Ethan Jurman
