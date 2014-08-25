@@ -22,6 +22,7 @@ MyApp.addInitializer( function(options) {
 
   MyApp.gameId = $("div.local-data").attr("game-data-id");
   characterId = $("div.local-data").attr("character-data-id");
+
   if(MyApp.gameId !== "") {
     console.log("Found game from route: " + MyApp.gameId);
     $("option[value='"+MyApp.gameId+"']").attr("selected", true)
@@ -29,11 +30,14 @@ MyApp.addInitializer( function(options) {
   }
   if(characterId !== "") {
     console.log("Found character from route: " + characterId);
+    $("option[value='"+characterId+"']").attr("selected", true)
+    MyApp.gameStation.vent.trigger("character:selected", characterId);
   }
 
 });
 
 MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
+
 MyApp.gameStation.vent.on("game:selected", function(gameId) {
   MyApp.gameId = gameId
   console.log("The App knows that "+gameId+" was selected!");
@@ -41,7 +45,17 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     async: false
   });
   var game = MyApp.games.get(gameId);
+
   var characters = new Characters(game.get("characters"));
+  var sortedChar = characters.sortBy( function(char) {
+      return char.get("name").toLowerCase();
+  });
+  characters.reset( sortedChar );
+
+  characters.each(function(v, k) {
+    v.set("id", k);
+  });
+
   var charactersDropdown = new CharactersDropdown({
     collection: characters
   });
@@ -50,6 +64,10 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     collection: characters
   });
   MyApp.characters.show( characterCab );
+});
+
+MyApp.gameStation.vent.on("character:selected", function(characterId) {
+  console.log("The App knows that "+characterId+" was selected!");
 });
 
 $(document).ready(function() {

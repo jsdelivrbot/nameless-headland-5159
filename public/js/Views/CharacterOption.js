@@ -1,6 +1,6 @@
 CharacterOption = Backbone.Marionette.ItemView.extend({
   tagName: function(){
-    return "option value=" + this.model.get("name");
+    return "option value=" + this.model.get("id");
   },
   template: Templite("<%= args.name %>"),
   initialize: function() {
