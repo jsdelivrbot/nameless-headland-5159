@@ -1,4 +1,4 @@
-MyApp = new Backbone.Marionette.Application();
+var MyApp = new Backbone.Marionette.Application();
 
 MyApp.addRegions({
   gameSelector: "#game-selector",
