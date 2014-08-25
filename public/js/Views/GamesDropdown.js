@@ -16,5 +16,16 @@ GamesDropdown = Backbone.Marionette.CompositeView.extend({
       console.log("selected: " + gameId);
       MyApp.gameStation.vent.trigger("game:selected", gameId);
     }
+    if ($("#move-type-style").length > 0){
+      document.getElementById("move-type-style").remove();
+    }
+    var moveTypeMap = MyApp.games.get(gameId).get("move_types");
+    var css = document.createElement("style");
+    css.id = "move-type-style";
+    css.type = "text/css";
+    for (move in moveTypeMap){
+      css.innerHTML += "tr." + move + "{background:" + moveTypeMap[move] + ";}";
+    };
+   document.head.appendChild(css);
   }
 });

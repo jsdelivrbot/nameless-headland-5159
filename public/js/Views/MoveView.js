@@ -1,5 +1,10 @@
 MoveView = Backbone.Marionette.ItemView.extend({
   tagName: function(){
+    if (_.isUndefined(this.model.get("move_type"))){
+      this.model.set({
+        "move_type":_.keys(MyApp.games.get(MyApp.gameId).get("move_types"))[0]
+      });
+    }
     return 'tr class="move-element '+this.model.get("move_type")+'"'
   },
   template: Templite(
