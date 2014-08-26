@@ -7,8 +7,8 @@ CharacterCabinet = Backbone.Marionette.CompositeView.extend({
     '<div class="character-div"></div>'
   ),
   buildChildView: function(child, ChildViewClass, childViewOptions){
-    console.log("building moves view");
-    var moves = new Moves(child.get("moves"));
+    // Build collection of Moves
+    var moves = new Backbone.Collection(child.get("moves"));
     // Build child views with the moves as the collection of child elements
     var view = new ChildViewClass({
       model: child,

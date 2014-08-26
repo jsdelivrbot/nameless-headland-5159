@@ -60,7 +60,7 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
   var game = MyApp.games.get(gameId);
 
   // Build the characters list (which also has the moves list)
-  var characters = new Characters(game.get("characters"));
+  var characters = new Backbone.Collection(game.get("characters"));
 
   // Sort the list by name (lowercased)
   var sortedChar = characters.sortBy( function(char) {
