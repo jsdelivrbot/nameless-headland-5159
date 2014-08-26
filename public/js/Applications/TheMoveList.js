@@ -95,7 +95,8 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
   css.id = "move-type-style";
   css.type = "text/css";
   for (move in moveTypeMap){
-    css.innerHTML += "tr." + move + "{background:" + moveTypeMap[move] + ";}";
+    css.innerHTML += "." + move + "{background:" + moveTypeMap[move] + ";" +
+    "border-color:" + moveTypeMap[move] + ";}";
   };
   document.head.appendChild(css);
 

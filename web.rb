@@ -10,6 +10,7 @@ class App < Sinatra::Base
     # asset management with sinatra/assetpack
     serve '/js', :from => 'public/js'
     serve '/css', :from => 'public/css'
+    serve '/img', :from => 'public/img'
 
     css :styles, [
       '/css/style.css'

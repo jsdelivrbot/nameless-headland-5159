@@ -1,6 +1,16 @@
 .character-table {
   float: left;
+  border: 5px solid;
 }
 .move-name {
   text-align: right;
+  font-weight: bold;
+  color: white;
+}
+.move-exec {
+  background-color: white;
+  border: 5px solid;
+}
+.move-note {
+  color: gray;
 }
