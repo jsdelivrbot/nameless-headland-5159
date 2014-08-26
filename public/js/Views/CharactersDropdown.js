@@ -1,3 +1,5 @@
+// View for a Character Dropdown to select a character
+
 CharactersDropdown = Backbone.Marionette.CompositeView.extend({
   childView: CharacterOption,
   childViewContainer: "select",
@@ -11,10 +13,10 @@ CharactersDropdown = Backbone.Marionette.CompositeView.extend({
     "change" : "selectItem"
   },
   selectItem: function(){
-    var characterName = $(".character-dropdown").val();
-    if (characterName !== "All") {
-      console.log("selected: " + characterName);
-      MyApp.gameStation.vent.trigger("character:selected", characterName);
+    // Select the value with jQuery, and send the characterId to the App
+    var characterId = $(".character-dropdown").val();
+    if (characterId !== "All") {
+      MyApp.gameStation.vent.trigger("character:selected", characterId);
     }
   }
 });

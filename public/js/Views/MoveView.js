@@ -1,3 +1,5 @@
+// View for a single move in a Character View
+
 MoveView = Backbone.Marionette.ItemView.extend({
   tagName: function(){
     if (_.isUndefined(this.model.get("move_type"))){
@@ -9,8 +11,5 @@ MoveView = Backbone.Marionette.ItemView.extend({
   },
   template: Templite(
     '<td class="move-name"><%= args.name %></td><td class="move-exec"><%= args.exec %></td><td class="move-note"><%= args.note %></td>'
-  ),
-  initialize: function() {
-    console.log("move rendered");
-  }
+  )
 });

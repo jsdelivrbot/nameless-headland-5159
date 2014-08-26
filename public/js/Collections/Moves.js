@@ -1,6 +1,5 @@
+// Collection of Move Models
+
 Moves = Backbone.Collection.extend({
-  model: Move,
-  initialize: function() {
-    console.log("Creating moves collection");
-  }
+  model: Move
 });

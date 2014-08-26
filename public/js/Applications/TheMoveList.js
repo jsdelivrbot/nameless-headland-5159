@@ -1,70 +1,92 @@
+// Single Page Application that lets users pick a game and character
+// and view command lists for an entire game
+
 MyApp = new Backbone.Marionette.Application();
 
+// Regions that exists in our index.erb
 MyApp.addRegions({
   gameSelector: "#game-selector",
   characterSelector: "#character-selector",
   characters: "#characters"
 });
 
+// Function called after page is initialized
 MyApp.addInitializer( function(options) {
 
-  console.log("building games collection");
+  // Build and fetch games list
   MyApp.games = new Games();
   MyApp.games.fetch({
     async: false
   });
 
-  console.log("building games view");
+  // Building games dropdown with MyApp.games
   var gamesDropdown = new GamesDropdown({
     collection: MyApp.games
   });
   this.gameSelector.show( gamesDropdown );
 
+  // Check if there are any parameters passed in url
   MyApp.gameId = $("div.local-data").attr("game-data-id");
   characterId = $("div.local-data").attr("character-data-id");
 
+  // if we have a game id in the url
   if(MyApp.gameId !== "") {
-    console.log("Found game from route: " + MyApp.gameId);
+    // Select that game in the dropdown
     $("option[value='"+MyApp.gameId+"']").attr("selected", true)
+    // Trigger the select event
     MyApp.gameStation.vent.trigger("game:selected", MyApp.gameId);
   }
+  // if we have a character id in the url
   if(characterId !== "") {
-    console.log("Found character from route: " + characterId);
+    // Select that character in the dropdown
     $("option[value='"+characterId+"']").attr("selected", true)
+    // Trigger the select event
     MyApp.gameStation.vent.trigger("character:selected", characterId);
   }
 
 });
 
+// Setup MyApp radio (should totally be replaced by Backbone.Radio eventually)
 MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
 
+// On the triggered event that a game is selected (via dropdown or url)
 MyApp.gameStation.vent.on("game:selected", function(gameId) {
   MyApp.gameId = gameId
-  console.log("The App knows that "+gameId+" was selected!");
+
+  // Fetch the data for that game
   MyApp.games.get(gameId).fetch({
     async: false
   });
   var game = MyApp.games.get(gameId);
 
+  // Build the characters list (which also has the moves list)
   var characters = new Characters(game.get("characters"));
+
+  // Sort the list by name (lowercased)
   var sortedChar = characters.sortBy( function(char) {
       return char.get("name").toLowerCase();
   });
+  // Save the sorted list to the characters collection
   characters.reset( sortedChar );
 
+  // Set the id of each character to it's sorted index
   characters.each(function(v, k) {
     v.set("id", k);
   });
 
+  // Build the characters dropdown view
   var charactersDropdown = new CharactersDropdown({
     collection: characters
   });
   MyApp.characterSelector.show( charactersDropdown );
+
+  // Build the characters view under the dropdowns
   var characterCab = new CharacterCabinet({
     collection: characters
   });
   MyApp.characters.show( characterCab );
 
+  // Add CSS styling based on selected game
   if ($("#move-type-style").length > 0){
     document.getElementById("move-type-style").remove();
   }
@@ -76,12 +98,15 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     css.innerHTML += "tr." + move + "{background:" + moveTypeMap[move] + ";}";
   };
   document.head.appendChild(css);
+
 });
 
+// Event trigger when a character is selected
 MyApp.gameStation.vent.on("character:selected", function(characterId) {
-  console.log("The App knows that "+characterId+" was selected!");
+  // Code will live here... one day...
 });
 
+// When the page loads, kick off the app!
 $(document).ready(function() {
   MyApp.start();
 });
