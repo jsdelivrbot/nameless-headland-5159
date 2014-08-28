@@ -27,7 +27,9 @@ class App < Sinatra::Base
     ]
     js :backbone, [
       '/js/Models/Game.js',
-      '/js/Collections/Games.js'
+      '/js/Collections/Games.js',
+      '/js/Models/Move.js',
+      '/js/Collections/Moves.js'
     ]
     js :views, [
       '/js/Views/GameOption.js',
