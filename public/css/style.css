@@ -1,39 +1,81 @@
 html * {
   font-family: 'Anton', sans-serif;
+  text-transform: uppercase;
+}
+body {
+  background-image: url("/img/px_by_Gre3g.png");
+  /*from subtle patterns! http://subtlepatterns.com/*/
 }
 button {
   padding:7px;
   border-radius:15px;
   border:2px solid lightgray;
 }
+.title {
+  color:white;
+}
+.custom-button-red {
+  border-radius: 30px;
+  border: 2px darkred;
+  border-style: solid;
+  background: red;
+  letter-spacing: 0px;
+}
+
+.custom-button-blue {
+  border-radius: 30px;
+  border: 2px darkblue;
+  border-style: solid;
+  background: blue;
+  letter-spacing: 0px;
+}
+
+.custom-button-green {
+  border-radius: 30px;
+  border: 2px darkgreen;
+  border-style: solid;
+  background: green;
+  letter-spacing: 0px;
+}
+
 select {
-  border-radius: 20px;
+  border-radius: 7px;
   font-size: 20px;
-  border: 4px solid black;
+  border: 2px solid black;
 }
 .character-table {
   float: left;
-  border: 5px solid black;
+  border: 2px solid black;
+  border-top-color: rgb(58, 58, 58);
+  border-left-color: rgb(58, 58, 58);
   color: white;
-  border-radius: 12px;
+  border-radius: 7px;
   background: linear-gradient(black,white);
 }
 .move-name {
   text-align: right;
+  border
   color: white;
 }
 .move-exec {
   background-color: white;
-  border: 5px solid;
 }
 .move-note {
   color: gray;
   border: 2px solid;
-  border-radius: 30px;
+  border-radius: 10px;
   text-align: center;
+  font-size: smaller;
+}
+.hide {
+  display: none;
 }
 td {
-  border-radius:5px;
+  border: 2px outset;
+  border-radius: 5px;
+}
+th {
+  font-weight:normal;
 }
 table {
   border-raidus:10px;

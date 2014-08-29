@@ -2,7 +2,16 @@
 Move = Backbone.Model.extend({
   initialize: function() {
     this.set({
-      "execHTML":this.execParse()
+      "execHTML": this.execParse()
+    });
+    this.set({
+      "move_type": this.moveTypeDefault()
+    });
+    this.set({
+      "hasNote": this.hasNote()
+    });
+    this.set({
+      "newLine": this.newLine()
     });
   },
   execParse: function() {
@@ -14,5 +23,27 @@ Move = Backbone.Model.extend({
       moveImages += '<img src="' + url + '">';
     }
     return moveImages;
+  },
+  moveTypeDefault: function(){
+    // setting up the move type (if undefined, set the first one as default)
+    if (_.isUndefined(this.get("move_type"))){
+      return _.keys(MyApp.games.get(MyApp.gameId).get("move_types"))[0];
+    }
+    return this.get("move_type");
+  },
+  hasNote: function(){
+    if (_.isUndefined(this.get("note"))) {
+      return "hide";
+    }
+    return "";
+  },
+  newLine: function(){
+    var note = this.get("note");
+    if (!_.isUndefined(note)) {
+      if (note.split(" ").length > 1){
+        return ""
+      }
+    }
+    return "hide";
   }
 });
