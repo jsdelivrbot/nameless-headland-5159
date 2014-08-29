@@ -13,7 +13,6 @@ Move = Backbone.Model.extend({
       var url = '/img/'+ strings[input] + '.png';
       moveImages += '<img src="' + url + '">';
     }
-    console.log(moveImages);
     return moveImages;
   }
 });

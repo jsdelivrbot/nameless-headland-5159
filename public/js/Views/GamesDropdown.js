@@ -4,8 +4,8 @@ GamesDropdown = Backbone.Marionette.CompositeView.extend({
   childView: GameOption,
   childViewContainer: "select",
   template: Templite(
-    '<select class="game-dropdown">' +
-      '<option selected="selected">Select Game</option>' +
+    '<select class="game-dropdown dropdown">' +
+      '<option selected="selected">Game Select</option>' +
     '</select>'
   ),
   events: {
