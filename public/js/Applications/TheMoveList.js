@@ -110,11 +110,13 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
 
 // Event trigger when a character is selected
 MyApp.gameStation.vent.on("character:selected", function(characterId) {
+
   // Change the URL to include the current character anchor
   MyApp.router.navigate(MyApp.gameId+"/"+characterId, false);
-  var charEl = $("a.character-anchor[name="+characterId+"]").first();
-  console.log(charEl);
-  charEl.click();
+
+  // Scroll to the character view
+  $("html, body").scrollTop($("table[id="+characterId+"]").offset().top);
+
 });
 
 // When the page loads, kick off the app!
