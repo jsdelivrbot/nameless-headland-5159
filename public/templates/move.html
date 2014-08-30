@@ -1,8 +1,9 @@
 <td class="move-name <%= args.move_type %>">
   <%= args.name %>
-</td>
-<td class="<%= args.move_type %> move-exec" style="background-color:white;">
-  <%= args.execHTML %>
-  <br class="<%= args.newLine %> <%= args.hasNote %>"/>
-  <span class="move-note <%= args.hasNote %>"><%= args.note %></span>
+  <table style="float: right;">
+    <td class="<%= args.move_type %> move-exec" style="background-color:white;">
+      <%= args.execHTML %>
+    </td>
+  </table>
+  <table class="move-note <%= args.hasNote %>"><td><%= args.note %> </td></table>
 </td>

@@ -10,9 +10,6 @@ Move = Backbone.Model.extend({
     this.set({
       "hasNote": this.hasNote()
     });
-    this.set({
-      "newLine": this.newLine()
-    });
   },
   execParse: function() {
     // setting up the exec to avaliable images
@@ -36,14 +33,5 @@ Move = Backbone.Model.extend({
       return "hide";
     }
     return "";
-  },
-  newLine: function(){
-    var note = this.get("note");
-    if (!_.isUndefined(note)) {
-      if (note.split(" ").length > 1){
-        return ""
-      }
-    }
-    return "hide";
   }
 });

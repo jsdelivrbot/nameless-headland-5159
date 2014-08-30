@@ -1,5 +1,5 @@
 html * {
-  font-family: 'Anton', sans-serif;
+  font-family: 'Exo 2', sans-serif;
   text-transform: uppercase;
 }
 body {
@@ -7,12 +7,28 @@ body {
   /*from subtle patterns! http://subtlepatterns.com/*/
 }
 button {
-  padding:7px;
-  border-radius:15px;
-  border:2px solid lightgray;
+  padding: 7px;
+  border-radius: 15px;
+  border: 2px solid lightgray;
 }
+td {
+  border: 2px outset;
+  border-radius: 5px;
+}
+th {
+  font-weight: 800;
+}
+table {
+  border-raidus:10px;
+}
+select {
+  border-radius: 7px;
+  font-size: 20px;
+  border: 2px solid black;
+}
+
 .title {
-  color:white;
+  color: white;
 }
 .custom-button-red {
   border-radius: 30px;
@@ -21,7 +37,6 @@ button {
   background: red;
   letter-spacing: 0px;
 }
-
 .custom-button-blue {
   border-radius: 30px;
   border: 2px darkblue;
@@ -29,7 +44,6 @@ button {
   background: blue;
   letter-spacing: 0px;
 }
-
 .custom-button-green {
   border-radius: 30px;
   border: 2px darkgreen;
@@ -37,14 +51,9 @@ button {
   background: green;
   letter-spacing: 0px;
 }
-
-select {
-  border-radius: 7px;
-  font-size: 20px;
-  border: 2px solid black;
-}
 .character-table {
   float: left;
+  width: 200px;
   border: 2px solid black;
   border-top-color: rgb(58, 58, 58);
   border-left-color: rgb(58, 58, 58);
@@ -53,30 +62,20 @@ select {
   background: linear-gradient(black,white);
 }
 .move-name {
-  text-align: right;
-  border
   color: white;
+  font-weight: bold;
+  line-height: 1em;
+  text-align: left;
 }
 .move-exec {
   background-color: white;
 }
 .move-note {
-  color: gray;
-  border: 2px solid;
-  border-radius: 10px;
+  padding-top: 5px;
   text-align: center;
   font-size: smaller;
+  font-style: italic;
 }
 .hide {
   display: none;
-}
-td {
-  border: 2px outset;
-  border-radius: 5px;
-}
-th {
-  font-weight:normal;
-}
-table {
-  border-raidus:10px;
 }
