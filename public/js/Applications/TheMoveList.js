@@ -58,9 +58,6 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     async: false
   });
   var game = MyApp.games.get(gameId);
-  console.log(game);
-  console.log(MyApp.gameId);
-  console.log(game.get("characters"));
   // Build the characters list (which also has the moves list)
   var characters = new Backbone.Collection(game.get("characters"));
 
