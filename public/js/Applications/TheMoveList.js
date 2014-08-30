@@ -61,7 +61,7 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     async: false
   });
   var game = MyApp.games.get(gameId);
-
+  
   // Change the URL to include the current gameId
   MyApp.router.navigate(gameId, false);
 
