@@ -13,6 +13,9 @@ MyApp.addRegions({
 // Function called after page is initialized
 MyApp.addInitializer( function(options) {
 
+  // Set up routes (for navigating to a new game)
+  MyApp.router = new GameRouter();
+
   // Build and fetch games list
   MyApp.games = new Games();
   MyApp.games.fetch({
@@ -58,9 +61,10 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     async: false
   });
   var game = MyApp.games.get(gameId);
-  console.log(game);
-  console.log(MyApp.gameId);
-  console.log(game.get("characters"));
+
+  // Change the URL to include the current gameId
+  MyApp.router.navigate(gameId);
+
   // Build the characters list (which also has the moves list)
   var characters = new Backbone.Collection(game.get("characters"));
 
@@ -106,10 +110,12 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
 
 // Event trigger when a character is selected
 MyApp.gameStation.vent.on("character:selected", function(characterId) {
-  // Code will live here... one day...
+  // Change the URL to include the current character anchor
+  MyApp.router.navigate(MyApp.gameId+"/"+characterId);
 });
 
 // When the page loads, kick off the app!
 $(document).ready(function() {
   MyApp.start();
+  Backbone.history.start({pushState: true, hashChange: false});
 });
