@@ -57,7 +57,6 @@ class App < Sinatra::Base
   get '/' do
     erb :index, locals: {game: "", character: ""}
   end
-=begin
   get '/:game' do
     erb :index, locals: {game: params[:game], character: ""}
   end
@@ -65,5 +64,4 @@ class App < Sinatra::Base
   get '/:game/:character' do
     erb :index, locals: {game: params[:game], character: params[:character]}
   end
-=end
 end

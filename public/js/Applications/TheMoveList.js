@@ -63,7 +63,7 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
   var game = MyApp.games.get(gameId);
 
   // Change the URL to include the current gameId
-  MyApp.router.navigate(gameId);
+  MyApp.router.navigate(gameId, false);
 
   // Build the characters list (which also has the moves list)
   var characters = new Backbone.Collection(game.get("characters"));
@@ -111,7 +111,10 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
 // Event trigger when a character is selected
 MyApp.gameStation.vent.on("character:selected", function(characterId) {
   // Change the URL to include the current character anchor
-  MyApp.router.navigate(MyApp.gameId+"/"+characterId);
+  MyApp.router.navigate(MyApp.gameId+"/"+characterId, false);
+  var charEl = $("a.character-anchor[name="+characterId+"]").first();
+  console.log(charEl);
+  charEl.click();
 });
 
 // When the page loads, kick off the app!
