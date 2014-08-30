@@ -26,30 +26,29 @@ select {
   font-size: 20px;
   border: 2px solid black;
 }
+@media (max-device-width:500px){
+  .character-table {width: 100%;}
+  html * {font-size: x-large;}
+}
 @media (max-width:500px){
-  .character-table {
-    width: 100%;
-  }
+  .character-table {width: 100%;}
+  html * {font-size: x-large;}
 }
 @media (min-width:500px) {
-  .character-table {
-    width: 50%;
-  }
+  .character-table {width: 50%;}
+  html * {font-size: large;}
 }
 @media (min-width:750px) {
-  .character-table {
-    width: 33.333%;
-  }
+  .character-table {width: 33.333%;}
+  html * {font-size: medium;}
 }
 @media (min-width:1000px) {
-  .character-table {
-    width: 25%;
-  }
+  .character-table {width: 25%;}
+  html * {font-size: medium;}
 }
 @media (min-width:1300px) {
-  .character-table {
-    width: 250px;
-  }
+  .character-table {width: 250px;}
+  html * {font-size: medium;}
 }
 .title {
   color: white;
