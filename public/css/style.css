@@ -26,7 +26,31 @@ select {
   font-size: 20px;
   border: 2px solid black;
 }
-
+@media (max-width:500px){
+  .character-table {
+    width: 100%;
+  }
+}
+@media (min-width:500px) {
+  .character-table {
+    width: 50%;
+  }
+}
+@media (min-width:750px) {
+  .character-table {
+    width: 33.333%;
+  }
+}
+@media (min-width:1000px) {
+  .character-table {
+    width: 25%;
+  }
+}
+@media (min-width:1300px) {
+  .character-table {
+    width: 250px;
+  }
+}
 .title {
   color: white;
 }
@@ -53,7 +77,6 @@ select {
 }
 .character-table {
   float: left;
-  width: 200px;
   border: 2px solid black;
   border-top-color: rgb(58, 58, 58);
   border-left-color: rgb(58, 58, 58);
