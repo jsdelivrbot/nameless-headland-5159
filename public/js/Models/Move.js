@@ -11,8 +11,11 @@ Move = Backbone.Model.extend({
       "move_type": this.moveTypeDefault()
     });
     this.set({
-      "hasNote": this.hasNote()
+      "hasNote": this.hideEmpty("note")
     });
+    this.set({
+      "hasPrereq": this.hideEmpty("prereq")
+    })
   },
   imageFormat: function(dataType) {
     // setting up the move/note for avaliable images
@@ -28,8 +31,8 @@ Move = Backbone.Model.extend({
     }
     return this.get("move_type");
   },
-  hasNote: function(){
-    if (_.isUndefined(this.get("note"))) {
+  hideEmpty: function(dataType){
+    if (_.isUndefined(this.get(dataType))) {
       return "hide";
     }
     return "";
