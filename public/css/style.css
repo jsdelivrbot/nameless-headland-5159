@@ -27,6 +27,9 @@ select {
   font-size: 20px;
   border: 2px solid black;
 }
+img {
+  vertical-align: middle;
+}
 @media (max-device-width:500px){
   .character-table {width: 100%;}
   html * {font-size: x-large;}
@@ -91,7 +94,7 @@ select {
   text-align: left;
 }
 .move-exec {
-  background-color: white;
+  border: inset;
 }
 .move-note {
   padding-top: 5px;

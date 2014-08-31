@@ -2,7 +2,10 @@
 Move = Backbone.Model.extend({
   initialize: function() {
     this.set({
-      "execHTML": this.execParse()
+      "execHTML": this.imageFormat("exec")
+    });
+    this.set({
+      "noteHTML": this.imageFormat("note")
     });
     this.set({
       "move_type": this.moveTypeDefault()
@@ -11,15 +14,12 @@ Move = Backbone.Model.extend({
       "hasNote": this.hasNote()
     });
   },
-  execParse: function() {
-    // setting up the exec to avaliable images
-    var moveImages = "";
-    var strings = this.get("exec").split(" ");
-    for (input in strings){
-      var url = '/img/'+ strings[input] + '.png';
-      moveImages += '<img src="' + url + '">';
+  imageFormat: function(dataType) {
+    // setting up the move/note for avaliable images
+    var moveImages = this.get(dataType);
+    if (!_.isUndefined(moveImages)){
+      return moveImages.replace(/\[/g, '<img src="/img/').replace(/\]/g,'.png">');
     }
-    return moveImages;
   },
   moveTypeDefault: function(){
     // setting up the move type (if undefined, set the first one as default)

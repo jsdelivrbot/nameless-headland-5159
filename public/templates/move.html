@@ -1,9 +1,9 @@
 <td class="move-name <%= args.move_type %>">
   <%= args.name %>
   <table style="float: right;">
-    <td class="<%= args.move_type %> move-exec" style="background-color:white;">
+    <td class="move-exec <%= args.move_type %>">
       <%= args.execHTML %>
     </td>
   </table>
-  <table class="move-note <%= args.hasNote %>"><td><%= args.note %> </td></table>
+  <table class="move-note <%= args.hasNote %>"><td><%= args.noteHTML %> </td></table>
 </td>
