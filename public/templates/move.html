@@ -1,19 +1,17 @@
 <td class="move-name <%= args.move_type %>">
   <%= args.name %>
   <table style="float: right;">
+    <tr class="<%= args.hasPrereq %>">
+      <%= args.prereqHTML %>
     <tr>
-      <td class="move-prereq <%= args.hasPrereq %>">
-        <%= args.prereq %>
-      </td>
-    <tr>
-      <td class="move-exec <%= args.move_type %>">
+      <td colspan="<%= args.prereqCount %>" class="move-exec <%= args.move_type %>">
         <%= args.execHTML %>
       </td>
     </tr>
   </table>
-  <table class="<%= args.move_type %> move-note <%= args.hasNote %>">
+  <table class="<%= args.hasNote %>">
     <tr>
-      <td class="move-note" style="padding: 2px;">
+      <td class="move-note <%= args.move_type %>" style="padding: 2px;">
         <%= args.noteHTML %>
       </td>
     </tr>
