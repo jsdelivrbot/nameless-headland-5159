@@ -40,6 +40,9 @@ class App < Sinatra::Base
       '/js/Views/CharacterView.js',
       '/js/Views/CharacterCabinet.js'
     ]
+    js :routers, [
+      '/js/Routers/GameRouter.js'
+    ]
     js :the_move_list, [
       '/js/Applications/TheMoveList.js'
     ]
@@ -54,7 +57,6 @@ class App < Sinatra::Base
   get '/' do
     erb :index, locals: {game: "", character: ""}
   end
-
   get '/:game' do
     erb :index, locals: {game: params[:game], character: ""}
   end
