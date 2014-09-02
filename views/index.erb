@@ -37,12 +37,35 @@
         character-data-id="<%= character %>">
     </div>
 
-    <span class="title custom-button-red" style="font-size: medium;">
-      The Command List
+    <div class="title custom-button-red" style="font-size: medium; margin: 0px 80px" align="center">
+      The Command List<br/>
       by Jesse and Ethan Jurman
-    </span>
-    <div id="game-selector"></div>
-    <div id="character-selector"></div>
-    <div id="characters"></div>
+    </div>
+    <div align="center" id="game-selector"></div>
+    <div align="center" id="character-selector"></div>
+    <div align="center" id="characters"></div>
+
+    <!-- scripts for page -->
+    <!-- this one is used for proper table resizing -->
+    <script type="text/javascript" charset="utf-8">
+      $(function() {
+        $(window).on('resize', function() {
+          var maxHeight = 0;
+          $(".character-table").each(function(index){
+            var height = $( this ).height();
+            if (height > maxHeight) {
+              maxHeight = height - 2;
+            }
+          });
+          $(".character-table").each(function(index){
+            $( this ).height(Math.ceil(maxHeight) + 4);
+          });
+        });
+        $(window).trigger('resize');
+        $("img").one("load", function(){
+          $(window).trigger('resize');
+        });
+      });
+    </script>
   </body>
 </html>
