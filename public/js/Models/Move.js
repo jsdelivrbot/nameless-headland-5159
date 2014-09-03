@@ -27,7 +27,7 @@ Move = Backbone.Model.extend({
     // setting up the move/note for avaliable images
     var moveImages = this.get(dataType);
     if (!_.isUndefined(moveImages)){
-      return moveImages.replace(/\[/g, '<img src="/img/').replace(/\]/g,'.png">');
+      return moveImages.replace(/\[/g, '<img src="/img/').replace(/\]/g,'.png" height="40" width="40">');
     }
   },
   divideRow: function(dataType){

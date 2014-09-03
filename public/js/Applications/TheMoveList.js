@@ -105,7 +105,8 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     "border-color:" + ColorMap(moveTypeMap[moveType]) + ";}";
   };
   document.head.appendChild(css);
-
+  $(window).trigger('resize');
+  console.log("resizes")
 });
 
 // Event trigger when a character is selected
