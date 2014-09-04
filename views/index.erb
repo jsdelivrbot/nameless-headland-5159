@@ -51,14 +51,24 @@
       $(function() {
         $(window).on('resize', function() {
           var maxHeight = 0;
-          $(".character-table").each(function(index){
+          $(".character-table").each(function(){
             var height = $( this ).height();
             if (height > maxHeight) {
               maxHeight = height - 2;
             }
           });
-          $(".character-table").each(function(index){
+          $(".character-table").each(function(){
             $( this ).height(Math.ceil(maxHeight) + 4);
+          });
+        });
+        $(window).on('resize', function() {
+          $(".move-name").each(function(){
+            $(this).css("font-size", 16);
+            var size = $(this).width() + $(this).height();
+            while (size == $(this).width() + $(this).height()){
+              $(this).css("font-size",parseFloat($(this).css("font-size"))+3)
+            }
+            $(this).css("font-size",parseFloat($(this).css("font-size"))-3)
           });
         });
         $(window).trigger('resize');
