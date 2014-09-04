@@ -50,7 +50,7 @@
     <script type="text/javascript" charset="utf-8">
       $(function() {
         $(window).on('resize', function() {
-          $(".character-table .move-name").css("font-size", 16)
+          $(".character-table .move-name").css("font-size", 16);
           var maxHeight = 0;
           $(".character-table").each(function(){
             var height = $( this ).height();
@@ -63,12 +63,23 @@
           });
         });
         $(window).on('resize', function() {
-          $(".move-name").each(function(){
-            var size = $(this).parents(".character-table").width() + $(this).parents(".character-table").height();
-            while (size == $(this).parents(".character-table").width() + $(this).parents(".character-table").height()){
-              $(this).css("font-size",parseFloat($(this).css("font-size"))+3)
+          $(".character-table").each(function(){
+            var size = $(this).width() + $(this).height();
+            var underMax = true;
+            while ((size == $(this).width() + $(this).height()) && (underMax)){
+              $(this).find(".move-name").each(function(){
+                $(this).css("font-size",parseFloat($(this).css("font-size"))+2);
+                if (parseInt($(this).css("font-size")) > 26){
+                  console.log("DERP over 32")
+                  underMax = false;
+                }
+              });
             }
-            $(this).css("font-size",parseFloat($(this).css("font-size"))-3)
+            while (size != $(this).width() + $(this).height()){
+              $(this).find(".move-name").each(function(){
+                $(this).css("font-size",parseFloat($(this).css("font-size"))-1);
+              });
+            }
           });
         });
         $(window).trigger('resize');
