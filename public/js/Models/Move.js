@@ -27,7 +27,11 @@ Move = Backbone.Model.extend({
     // setting up the move/note for avaliable images
     var moveImages = this.get(dataType);
     if (!_.isUndefined(moveImages)){
-      return moveImages.replace(/\[/g, '<img src="/img/').replace(/\]/g,'.png" height="26" width="26">');
+      return moveImages
+        .replace(/\</g, '<span class="custom-button blue">')
+        .replace(/\>/g, '</span>')
+        .replace(/\[/g, '<img src="/img/')
+        .replace(/\]/g,'.png" height="26" width="26">');
     }
   },
   divideRow: function(dataType){

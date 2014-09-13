@@ -6,6 +6,7 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <meta name="viewport" content="width=device-width; initial-scale = 1.0; maximum-scale=1.0; user-scalable=no" />
     <link href='http://fonts.googleapis.com/css?family=Exo+2:600italic,700,800' rel='stylesheet' type='text/css'>
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Styles -->
     <%= css :styles %>
 
@@ -30,19 +31,25 @@
   </head>
 
   <body>
+    <div class="title red" style="font-size: medium; display: inherit;">
+      <i class="fa fa-cog fa-4x settings" style="float: right;"></i>
+      <span class="main-title">The Command List</span><br/>
+      <span style="font-size: 18px">by Jesse and Ethan Jurman</span>
+      <div align="center" id="game-selector"></div>
+      <div align="center" id="character-selector"></div>
+    </div>
+    <div class="toggle-title red">
+      <div align="center">
+        <i class="fa fa-chevron-up title" style="color: white;"></i>
+        <i class="fa fa-chevron-down title" style="display:none; color: white;"></i>
+      </div>
+    </div>
     <!-- background from http://subtlepatterns.com/ SUPER!-->
     <!-- Locals -->
     <div class="local-data"
         game-data-id="<%= game %>"
         character-data-id="<%= character %>">
     </div>
-
-    <div class="title custom-button-red" style="font-size: medium; margin: 0px 80px" align="center">
-      The Command List<br/>
-      by Jesse and Ethan Jurman
-    </div>
-    <div align="center" id="game-selector"></div>
-    <div align="center" id="character-selector"></div>
     <div align="center" id="characters"></div>
 
     <!-- scripts for page -->
@@ -64,6 +71,9 @@
         $("img").one("load", function(){
           $(window).trigger('resize');
         });
+      });
+      $(".toggle-title").click(function(){
+        $(".title").toggle(750);
       });
     </script>
   </body>

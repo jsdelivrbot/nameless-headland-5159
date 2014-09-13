@@ -28,6 +28,7 @@ html * {
   text-transform: uppercase;
 }
 body {
+  margin: 0px;
   background-image: url("/img/px_by_Gre3g.png");
   /*from subtle patterns! http://subtlepatterns.com/*/
 }
@@ -61,32 +62,50 @@ hr {
   margin-left: 30px;
   margin-right: 30px;
 }
+#characters {
+  margin: 8px;
+}
+
 .title {
   color: white;
+  padding: 4px 8px;
 }
-.custom-button-red {
+.main-title {
+  font-size: 32px;
+}
+.settings:hover {
+  color: rgb(240, 230, 230);
+}
+.custom-button {
   border-radius: 30px;
+  border-style: solid;
+  letter-spacing: 0px;
+  height: 100%;
+  display: inline-block;
+  font-weight: bolder;
+  padding: 0px 5px;
+}
+.red {
   border: 2px rgb(160, 60, 60);
-  border-style: solid;
   background: rgb(184, 81, 81);
-  letter-spacing: 0px;
-  padding: 2px;
 }
-.custom-button-blue {
-  border-radius: 30px;
-  border: 2px rgb(60, 60, 160);;
-  border-style: solid;
-  background: rgb(81, 81, 184);;
-  letter-spacing: 0px;
-  padding: 2px;
+.blue {
+  border: 2px rgb(60, 60, 160);
+  background: rgb(81, 81, 184);
 }
-.custom-button-green {
-  border-radius: 30px;
-  border: 2px rgb(60, 160, 60);;
-  border-style: solid;
-  background: rgb(81, 184, 81);;
-  letter-spacing: 0px;
-  padding: 2px;
+.green {
+  border: 2px rgb(60, 160, 60);
+  background: rgb(81, 184, 81);
+}
+.raised-button {
+  padding: 0px;
+  border-top-width: 1px;
+  border-bottom-width: 3px;
+}
+.pressed-button {
+  padding: 0px;
+  border-top-width: 3px;
+  border-bottom-width: 1px;
 }
 table.character-table {
   float: left;
