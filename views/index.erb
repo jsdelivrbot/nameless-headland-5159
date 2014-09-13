@@ -38,10 +38,10 @@
       <div align="center" id="game-selector"></div>
       <div align="center" id="character-selector"></div>
     </div>
-    <div class="toggle-title red">
+    <div class="red">
       <div align="center">
-        <i class="fa fa-chevron-up title" style="color: white;"></i>
-        <i class="fa fa-chevron-down title" style="display:none; color: white;"></i>
+        <i class="fa fa-chevron-up toggle-title" style="padding: 0px 40%; color: white;"></i>
+        <i class="fa fa-chevron-down toggle-title" style="display:none; padding: 0px 40%; color: white;"></i>
       </div>
     </div>
     <!-- background from http://subtlepatterns.com/ SUPER!-->
@@ -73,7 +73,8 @@
         });
       });
       $(".toggle-title").click(function(){
-        $(".title").toggle(750);
+        $(".title").slideToggle();
+        $(".toggle-title").toggle(500);
       });
     </script>
   </body>
