@@ -32,7 +32,6 @@ class App < Sinatra::Base
       '/js/Collections/Moves.js'
     ]
     js :views, [
-      '/js/Views/HeaderView.js',
       '/js/Views/GameOption.js',
       '/js/Views/GamesDropdown.js',
       '/js/Views/CharacterOption.js',
