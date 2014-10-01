@@ -13,8 +13,7 @@ class App < Sinatra::Base
     serve '/img', :from => 'public/img'
 
     css :styles, [
-      '/css/style.css',
-      '/css/modal.css'
+      '/css/style.css'
     ]
 
     js :vendors, [
