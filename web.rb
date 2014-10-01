@@ -13,7 +13,8 @@ class App < Sinatra::Base
     serve '/img', :from => 'public/img'
 
     css :styles, [
-      '/css/style.css'
+      '/css/style.css',
+      '/css/modal.css'
     ]
 
     js :vendors, [
@@ -32,6 +33,7 @@ class App < Sinatra::Base
       '/js/Collections/Moves.js'
     ]
     js :views, [
+      '/js/Views/HeaderView.js',
       '/js/Views/GameOption.js',
       '/js/Views/GamesDropdown.js',
       '/js/Views/CharacterOption.js',

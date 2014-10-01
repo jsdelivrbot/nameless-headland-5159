@@ -1,6 +1,9 @@
 // View for a Character Table Item (with complete move-set)
 
 CharacterCabinet = Backbone.Marionette.CompositeView.extend({
+  initialize: function(options) {
+    $(window).on("resize", this.resizeTables);
+  },
   childView: CharacterView,
   childViewContainer: "div",
   template: Templite(
@@ -15,5 +18,19 @@ CharacterCabinet = Backbone.Marionette.CompositeView.extend({
       collection: moves
     });
     return view;
+  },
+  events: {
+    "resize window": "resizeTables"
+  },
+  resizeTables: function() {
+    $(".character-table").height(0);
+    var maxHeight = 0;
+    $(".character-table").each(function(){
+      var height = $( this ).height();
+      if (height > maxHeight) {
+        maxHeight = height;
+      }
+    });
+    $(".character-table").height((Math.ceil(maxHeight/10)+1)*10);
   }
 });

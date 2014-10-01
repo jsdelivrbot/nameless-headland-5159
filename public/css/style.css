@@ -21,7 +21,7 @@
   .character-table {width: 25%;}
 }
 @media (min-width:1300px) {
-  .character-table {width: 250px;}
+  .character-table {width: 315px;}
 }
 html * {
   font-family: 'Exo 2', sans-serif;
@@ -65,7 +65,6 @@ hr {
 #characters {
   margin: 8px;
 }
-
 .title {
   color: white;
   padding: 4px 8px;
@@ -73,8 +72,16 @@ hr {
 .main-title {
   font-size: 32px;
 }
-.settings:hover {
-  color: rgb(240, 230, 230);
+.toggle-title:hover {
+  cursor: pointer;
+}
+.selectable {
+  color: white;
+  padding: 5px;
+}
+.selectable:hover {
+  color: rgb(230, 220, 220);
+  cursor: pointer;
 }
 .custom-button {
   border-radius: 30px;
@@ -86,24 +93,26 @@ hr {
   padding: 0px 5px;
 }
 .red {
-  border: 2px rgb(160, 60, 60);
+  border-color: rgb(160, 60, 60);
   background: rgb(184, 81, 81);
 }
+.red-grad {
+  border-color: rgb(160, 60, 60);
+  background: linear-gradient(rgb(184, 81, 81),rgb(160, 60, 60));
+}
 .blue {
-  border: 2px rgb(60, 60, 160);
+  border-color: rgb(60, 60, 160);
   background: rgb(81, 81, 184);
 }
 .green {
-  border: 2px rgb(60, 160, 60);
+  border-color: rgb(60, 160, 60);
   background: rgb(81, 184, 81);
 }
 .raised-button {
-  padding: 0px;
   border-top-width: 1px;
   border-bottom-width: 3px;
 }
 .pressed-button {
-  padding: 0px;
   border-top-width: 3px;
   border-bottom-width: 1px;
 }
@@ -115,6 +124,7 @@ table.character-table {
   color: white;
   border-radius: 7px;
   background: linear-gradient(rgb(11, 14, 19),white);
+  overflow-y: scroll;
 }
 .move-name {
   color: black;
@@ -141,4 +151,13 @@ table.character-table {
 }
 .hide {
   display: none;
+}
+
+/* MODAL STUFF */
+.modal {
+  position: absolute;
+  background: white;
+  border: 7px solid gray;
+  border-radius: 15px;
+  padding: 20px;
 }
