@@ -55,6 +55,12 @@ MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
 // On the triggered event that a move set is selected / changed
 MyApp.gameStation.vent.on("moveToggle", function(moveType) {
   $("." + moveType).toggle();
+  var button = $("." + moveType + "Toggle")
+  if (button.hasClass("red")){
+    button.removeClass("red")
+  } else {
+    button.addClass("red")
+  }
   $(window).trigger('resize');
 });
 
@@ -113,7 +119,7 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
     css.innerHTML += "." + moveType + " {background:" + ColorMap(moveTypeMap[moveType]) + ";" +
     "border-color:" + ColorMap(moveTypeMap[moveType]) + ";}";
     var toggleType = document.createElement("button")
-    toggleType.className = "moveTypeToggle"
+    toggleType.className = moveType + "Toggle moveTypeToggle";
     toggleType.appendChild(document.createTextNode(moveType));
     toggleType.onclick = function(moveType) {
       return function(){
