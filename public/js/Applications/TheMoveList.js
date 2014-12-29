@@ -42,7 +42,7 @@ MyApp.addInitializer( function(options) {
   // if we have a character id in the url
   if(characterId !== "") {
     // Select that character in the dropdown
-    $("option[value='"+characterId+"']").attr("selected", true)
+    $("option[value='"+characterId+"']").attr("selected", true);
     // Trigger the select event
     MyApp.gameStation.vent.trigger("character:selected", characterId);
   }
@@ -51,6 +51,12 @@ MyApp.addInitializer( function(options) {
 
 // Setup MyApp radio (should totally be replaced by Backbone.Radio eventually)
 MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
+
+// On the triggered event that a move set is selected / changed
+MyApp.gameStation.vent.on("moveToggle", function(moveType) {
+  $("." + moveType).toggle();
+  $(window).trigger('resize');
+});
 
 // On the triggered event that a game is selected (via dropdown or url)
 MyApp.gameStation.vent.on("game:selected", function(gameId) {
@@ -100,9 +106,22 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
   var css = document.createElement("style");
   css.id = "move-type-style";
   css.type = "text/css";
+
+  // remove old move toggles
+  $('.moveTypeToggle').remove();
   for (moveType in moveTypeMap){
     css.innerHTML += "." + moveType + " {background:" + ColorMap(moveTypeMap[moveType]) + ";" +
     "border-color:" + ColorMap(moveTypeMap[moveType]) + ";}";
+    var toggleType = document.createElement("button")
+    toggleType.className = "moveTypeToggle"
+    toggleType.appendChild(document.createTextNode(moveType));
+    toggleType.onclick = function(moveType) {
+      return function(){
+        MyApp.gameStation.vent.trigger("moveToggle", moveType)
+      }
+    }(moveType);
+    var top = document.getElementById("topMenu")
+    top.appendChild(toggleType)
   };
   document.head.appendChild(css);
   $(window).trigger('resize');
