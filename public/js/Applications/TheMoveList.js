@@ -118,7 +118,7 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
   for (moveType in moveTypeMap){
     css.innerHTML += "." + moveType + " {background:" + ColorMap(moveTypeMap[moveType]) + ";" +
     "border-color:" + ColorMap(moveTypeMap[moveType]) + ";}";
-    var toggleType = document.createElement("button")
+    var toggleType = document.createElement("button");
     toggleType.className = moveType + "Toggle moveTypeToggle";
     toggleType.appendChild(document.createTextNode(moveType));
     toggleType.onclick = function(moveType) {
@@ -126,8 +126,8 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
         MyApp.gameStation.vent.trigger("moveToggle", moveType)
       }
     }(moveType);
-    var top = document.getElementById("topMenu")
-    top.appendChild(toggleType)
+    var top = document.getElementById("topMenu");
+    top.appendChild(toggleType);
   };
   document.head.appendChild(css);
   $(window).trigger('resize');
