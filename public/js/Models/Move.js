@@ -130,6 +130,12 @@ Move = Backbone.Model.extend({
       case "[623]":
         html.appendChild(makeImage("img/96_input_yellow_dp.png","img-input"));
         break;
+      case "[63214789]":
+        html.appendChild(makeImage("img/96_input_yellow_fcf.png","img-input"));
+        break;
+      case "[41236987]":
+        html.appendChild(makeImage("img/96_input_yellow_fcb.png","img-input"));
+        break;
     }
     return html.innerHTML;
   },
