@@ -25,7 +25,6 @@
 }
 html * {
   font-family: 'Exo 2', sans-serif;
-  text-transform: uppercase;
 }
 body {
   margin: 0px;
@@ -40,7 +39,6 @@ button {
   margin-right: 5px;
 }
 td {
-  border: 2px outset;
   border-radius: 5px;
 }
 th {
@@ -118,22 +116,23 @@ hr {
   border-bottom-width: 1px;
 }
 table.character-table {
+  padding: 0px 2px;
   float: left;
   border: 2px solid black;
   border-top-color: rgb(58, 58, 58);
   border-left-color: rgb(58, 58, 58);
   color: white;
   border-radius: 7px;
-  background: linear-gradient(rgb(11, 14, 19),white);
+  background: rgb(11, 14, 19);
   overflow-y: scroll;
 }
 .move-name {
   color: black;
   font-weight: bold;
   text-align: left;
+  padding: 0px 2px;
 }
 .move-exec {
-  border: inset;
   text-align: center;
 }
 .move-note {
@@ -146,8 +145,6 @@ table.character-table {
   color: white;
   text-align: center;
   font-size: small;
-  border-style: outset;
-  border-color: darkslategrey;
   background-color: darkslategrey;
 }
 .hide {
@@ -155,7 +152,7 @@ table.character-table {
 }
 
 .img-input {
-  height: 30px;
+  height: 1.5em;
 }
 /* rotations for directional inputs */
 
