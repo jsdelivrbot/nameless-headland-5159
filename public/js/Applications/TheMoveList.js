@@ -116,8 +116,7 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
   // remove old move toggles
   $('.moveTypeToggle').remove();
   for (moveType in moveTypeMap){
-    css.innerHTML += "." + moveType + " {background:" + ColorMap(moveTypeMap[moveType]) + ";" +
-    "border-color:" + ColorMap(moveTypeMap[moveType]) + ";}";
+    css.innerHTML += "." + moveType + " {background:" + ColorMap(moveTypeMap[moveType]) + ";}";
     var toggleType = document.createElement("button");
     toggleType.className = moveType + "Toggle moveTypeToggle";
     toggleType.appendChild(document.createTextNode(moveType));
@@ -141,7 +140,6 @@ MyApp.gameStation.vent.on("character:selected", function(characterId) {
 
   // Scroll to the character view
   $("html, body").scrollTop($("table[id="+characterId+"]").offset().top);
-
 });
 
 // When the page loads, kick off the app!

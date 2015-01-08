@@ -92,7 +92,7 @@ hr {
   padding: 0px 5px;
 }
 .red {
-  border-color: rgb(160, 60, 60);
+  /*border-color: rgb(160, 60, 60);*/
   background: rgb(184, 81, 81);
 }
 .red-grad {
@@ -100,11 +100,11 @@ hr {
   background: linear-gradient(rgb(184, 81, 81),rgb(160, 60, 60));
 }
 .blue {
-  border-color: rgb(60, 60, 160);
+  /*border-color: rgb(60, 60, 160);*/
   background: rgb(81, 81, 184);
 }
 .green {
-  border-color: rgb(60, 160, 60);
+  /*border-color: rgb(60, 160, 60);*/
   background: rgb(81, 184, 81);
 }
 .raised-button {
@@ -139,7 +139,7 @@ table.character-table {
   margin-top: 5px;
   text-align: center;
   font-size: small;
-  border-style: groove;
+  border: 1px solid black;
 }
 .move-prereq {
   color: white;
