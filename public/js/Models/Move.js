@@ -29,7 +29,7 @@ Move = Backbone.Model.extend({
     if (!_.isUndefined(moveImages)){
       return moveImages
         .replace(/<([^>]*)>/g, '<span class="custom-button raised-button">$1</span>')
-        .replace(/\[([^\]]*)\]/g, this.expandCommand)
+        .replace(/\[([^\]]*)\]/g, this.expandCommand);
     }
   },
   expandCommand: function(match){
