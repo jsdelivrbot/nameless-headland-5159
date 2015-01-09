@@ -56,12 +56,15 @@ Move = Backbone.Model.extend({
 
       var first = makeImage("/img/96_blank.png");
       first.className = classes[0];
+      var double = false; // because there are sometimes images 2x the width
       for(b in buttons){
         var i = makeImage(buttons[b]);
+        double = double || (buttons[b].match(/\dx.*/g));
         i.className = classes[b];
         i.setAttribute("style","position:absolute;z-index:1;")
         span.appendChild(i);
       }
+      if (double) {span.appendChild(first.cloneNode())}
       span.appendChild(first);
       return span;
     };

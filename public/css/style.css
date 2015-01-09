@@ -22,6 +22,7 @@
 }
 @media (min-width:1300px) {
   .character-table {width: 315px;}
+  body {margin:auto;}
 }
 html * {
   font-family: 'Exo 2', sans-serif;
@@ -91,7 +92,12 @@ hr {
   font-weight: 700;
   font-family: 'Montserrat', sans-serif;
   padding: 0px 5px;
-  background: white;
+  background: rgba(255, 255, 255, 0.50);
+  font-size: 1.25em;
+}
+.custom-button>span>img {
+  height: 1.2em;
+  padding-top: 0.17em;
 }
 .red {
   /*border-color: rgb(160, 60, 60);*/
