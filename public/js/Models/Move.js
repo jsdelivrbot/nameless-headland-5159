@@ -9,7 +9,7 @@ Move = Backbone.Model.extend({
     });
     this.set({
       "prereqHTML": this.divideRow("prereq")
-    })
+    });
     this.set({
       "type": this.moveTypeDefault()
     });
@@ -18,10 +18,10 @@ Move = Backbone.Model.extend({
     });
     this.set({
       "hasPrereq": this.hideEmpty("prereq")
-    })
+    });
     this.set({
       "prereqCount": this.prereqCount()
-    })
+    });
   },
   imageFormat: function(dataType) {
     // setting up the move/note for avaliable images
@@ -85,22 +85,22 @@ Move = Backbone.Model.extend({
     }
     switch(match){
       case "[lk]":
-        html.appendChild(mergeButtons(["/img/96_kick_light.png","/img/96_text_K.png","/img/96_text_L.png"],"img-input"));
+        html.appendChild(mergeButtons(["/img/96_kick_light.png"],"img-input"));
         break;
       case "[mk]":
-        html.appendChild(mergeButtons(["/img/96_kick_medium.png","/img/96_text_K.png","/img/96_text_M.png"],"img-input"));
+        html.appendChild(mergeButtons(["/img/96_kick_medium.png"],"img-input"));
         break;
       case "[hk]":
-        html.appendChild(mergeButtons(["/img/96_kick_heavy.png","/img/96_text_K.png","/img/96_text_H.png"],"img-input"));
+        html.appendChild(mergeButtons(["/img/96_kick_heavy.png"],"img-input"));
         break;
       case "[lp]":
-        html.appendChild(mergeButtons(["/img/96_punch_light.png","/img/96_text_P.png","/img/96_text_L.png"],"img-input"));
+        html.appendChild(mergeButtons(["/img/96_punch_light.png"],"img-input"));
         break;
       case "[mp]":
-        html.appendChild(mergeButtons(["/img/96_punch_medium.png","/img/96_text_P.png","/img/96_text_M.png"],"img-input"));
+        html.appendChild(mergeButtons(["/img/96_punch_medium.png"],"img-input"));
         break;
       case "[hp]":
-        html.appendChild(mergeButtons(["/img/96_punch_heavy.png","/img/96_text_P.png","/img/96_text_H.png"],"img-input"));
+        html.appendChild(mergeButtons(["/img/96_punch_heavy.png"],"img-input"));
         break;
       case "[k]":
         html.appendChild(makeButton("/img/96_Kick.png","img-input"));
