@@ -95,10 +95,6 @@ hr {
   background: rgba(255, 255, 255, 0.50);
   font-size: 1.2em;
 }
-.custom-button>span>img {
-  height: 1.2em;
-  padding-top: 0.17em;
-}
 .red {
   /*border-color: rgb(160, 60, 60);*/
   background: rgb(184, 81, 81);
@@ -160,13 +156,44 @@ table.character-table {
 }
 
 .img-input {
-  height: 1.5em;
+  height: 1.8em;
 }
 .img-input>span {
   height: 1.2em;
 }
 /* rotations for directional inputs */
-
+.custom-button>span>img {
+  height: 1.2em;
+  padding-top: 0.17em;
+}
+.custom-button>span>img.rotate2 {
+  padding-top: 0em;
+  padding-right: 0.17em;
+  padding-bottom: 0.17em;
+}
+.custom-button>span>img.rotate3 {
+  padding-top: 0em;
+  padding-bottom: 0.17em;
+  padding-right: 0.085em;
+  padding-left: 0.085em;
+}
+.custom-button>span>img.rotate6 {
+  padding-top: 0em;
+  padding-bottom: 0.17em;
+}
+.custom-button>span>img.img-input.rotate7 {
+  padding-top: 0.17em;
+}
+.custom-button>span>img.rotate8 {
+  padding-top: 0.17em;
+  padding-left: 0.17em;
+}
+.custom-button>span>.rotate9 {
+  padding-top: 0.17em;
+  padding-left: 0.17em;
+  padding-bottom: 0.085em;
+  padding-right: 0.085em;
+}
 .rotate1 {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
