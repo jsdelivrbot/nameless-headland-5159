@@ -2,27 +2,38 @@
   .character-table {width: 100%;}
   html * {font-size: x-large;}
   .move-name {font-size: x-large;}
+  .state-indicator { /* for indicating device / state */
+    position:absolute;
+    width:0px;
+    height:0px;
+    z-index:1;
+  }
 }
 @media (max-width:500px){
   .character-table {width: 100%;}
   html * {font-size: x-large;}
   .move-name {font-size: x-large;}
+  .state-indicator {z-index:1;}
 }
 @media (min-width:500px) {
   .character-table {width: 50%;}
   html * {font-size: large;}
   .move-name {font-size: large;}
+  .state-indicator {z-index:2;}
 }
 @media (min-width:750px) {
   .character-table {width: 33.333%;}
   html * {font-size: 18px;}
+  .state-indicator {z-index:3;}
 }
 @media (min-width:1000px) {
   .character-table {width: 25%;}
+  .state-indicator {z-index:4;}
 }
 @media (min-width:1300px) {
   .character-table {width: 315px;}
   body {margin:auto;}
+  .state-indicator {z-index:5;}
 }
 html * {
   font-family: 'Exo 2', sans-serif;

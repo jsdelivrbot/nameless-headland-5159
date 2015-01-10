@@ -23,14 +23,20 @@ CharacterCabinet = Backbone.Marionette.CompositeView.extend({
     "resize window": "resizeTables"
   },
   resizeTables: function() {
-    $(".character-table").height(0);
-    var maxHeight = 0;
-    $(".character-table").each(function(){
-      var height = $( this ).height();
-      if (height > maxHeight) {
-        maxHeight = height;
-      }
-    });
-    $(".character-table").height((Math.ceil(maxHeight/10)+1)*10);
+    if (parseInt($('.character-table').css('width')) <= parseInt(($('html').css('width'))) / 2){
+      // resize tables to be equal column length
+      $(".character-table").height(0);
+      var maxHeight = 0;
+      $(".character-table").each(function(){
+        var height = $( this ).height();
+        if (height > maxHeight) {
+          maxHeight = height;
+        }
+      });
+      $(".character-table").height((Math.ceil(maxHeight/10)+1)*10);
+    } else {
+      // don't resize if only one column
+      $(".character-table").height(0);
+    }
   }
 });
