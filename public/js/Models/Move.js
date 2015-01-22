@@ -41,8 +41,8 @@ Move = Backbone.Model.extend({
       return img;
     };
 
-    makeButton = function(button, classes, location){
-      return mergeButtons([button],classes);
+    makeButton = function(button, classes){
+      return makeImage(button,classes);
     };
 
     mergeButtons = function(buttons, classes){
@@ -72,10 +72,10 @@ Move = Backbone.Model.extend({
     var html = document.createElement("div");
     // returns a string of a img tag holding the correct image from the input command
     if (match.match(/(\[[012346789]\])/g)){
-      html.appendChild(makeButton("/img/96_input_yellow_arrow.png","img-input rotate" + match[1]));
+      html.appendChild(makeButton("/img/96_input_yellow_arrow.png","img-input _flip rotate" + match[1]));
     }
     if (match.match(/(\[h[012346789]\])/g)){
-      html.appendChild(mergeButtons(["/img/96_input_yellow_arrow.png","/img/96_hold.png"],["img-input rotate" + match[2],"img-input"]));
+      html.appendChild(mergeButtons(["/img/96_input_yellow_arrow.png","/img/96_hold.png"],["img-input _flip rotate" + match[2],"img-input"]));
     }
     if (match.match(/\[(white|gray|black|red|yellow|orange|green|teal|purple|blue)-(w|b)-([^\]]*)\]/g)){
       var matches = /\[(white|gray|black|red|yellow|orange|green|teal|purple|blue)-(w|b)-([^\]]*)\]/g.exec(match);
@@ -85,22 +85,22 @@ Move = Backbone.Model.extend({
     }
     switch(match){
       case "[lk]":
-        html.appendChild(mergeButtons(["/img/96_kick_light.png"],"img-input"));
+        html.appendChild(makeButton("/img/96_kick_light.png","img-input"));
         break;
       case "[mk]":
-        html.appendChild(mergeButtons(["/img/96_kick_medium.png"],"img-input"));
+        html.appendChild(makeButton("/img/96_kick_medium.png","img-input"));
         break;
       case "[hk]":
-        html.appendChild(mergeButtons(["/img/96_kick_heavy.png"],"img-input"));
+        html.appendChild(makeButton("/img/96_kick_heavy.png","img-input"));
         break;
       case "[lp]":
-        html.appendChild(mergeButtons(["/img/96_punch_light.png"],"img-input"));
+        html.appendChild(makeButton("/img/96_punch_light.png","img-input"));
         break;
       case "[mp]":
-        html.appendChild(mergeButtons(["/img/96_punch_medium.png"],"img-input"));
+        html.appendChild(makeButton("/img/96_punch_medium.png","img-input"));
         break;
       case "[hp]":
-        html.appendChild(mergeButtons(["/img/96_punch_heavy.png"],"img-input"));
+        html.appendChild(makeButton("/img/96_punch_heavy.png","img-input"));
         break;
       case "[k]":
         html.appendChild(makeButton("/img/96_Kick.png","img-input"));
@@ -121,28 +121,28 @@ Move = Backbone.Model.extend({
         html.appendChild(makeButton("/img/96_3xPunch.png","img-input"));
         break;
       case "[214]":
-        html.appendChild(makeButton("/img/96_input_yellow_qcb.png","img-input"));
+        html.appendChild(makeButton("/img/96_input_yellow_qcb.png","img-input _flip"));
         break;
       case "[63214]":
-        html.appendChild(makeButton("/img/96_input_yellow_hcb.png","img-input"));
+        html.appendChild(makeButton("/img/96_input_yellow_hcb.png","img-input _flip"));
         break;
       case "[421]":
-        html.appendChild(makeButton("/img/96_input_yellow_rdp.png","img-input"));
+        html.appendChild(makeButton("/img/96_input_yellow_rdp.png","img-input _flip"));
         break;
       case "[236]":
-        html.appendChild(makeButton("/img/96_input_yellow_qcf.png","img-input"));
+        html.appendChild(makeButton("/img/96_input_yellow_qcf.png","img-input _flip"));
         break;
       case "[41236]":
-        html.appendChild(makeButton("/img/96_input_yellow_hcf.png","img-input"));
+        html.appendChild(makeButton("/img/96_input_yellow_hcf.png","img-input _flip"));
         break;
       case "[623]":
-        html.appendChild(makeButton("/img/96_input_yellow_dp.png","img-input"));
+        html.appendChild(makeButton("/img/96_input_yellow_dp.png","img-input _flip"));
         break;
       case "[63214789]":
-        html.appendChild(makeButton("/img/96_input_yellow_fcf.png","img-input"));
+        html.appendChild(makeButton("/img/96_input_yellow_fcf.png","img-input _flip"));
         break;
       case "[41236987]":
-        html.appendChild(makeButton("/img/96_input_yellow_fcb.png","img-input"));
+        html.appendChild(makeButton("/img/96_input_yellow_fcb.png","img-input _flip"));
         break;
     }
     return html.innerHTML;

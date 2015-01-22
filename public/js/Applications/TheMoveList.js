@@ -56,10 +56,10 @@ MyApp.gameStation = Backbone.Wreqr.radio.channel('selected-game');
 MyApp.gameStation.vent.on("moveToggle", function(moveType) {
   $("." + moveType).toggle();
   var button = $("." + moveType + "Toggle")
-  if (button.hasClass("red")){
-    button.removeClass("red")
+  if (button.hasClass("dark")){
+    button.removeClass("dark")
   } else {
-    button.addClass("red")
+    button.addClass("dark")
   }
   $(window).trigger('resize');
 });
@@ -125,10 +125,11 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
         MyApp.gameStation.vent.trigger("moveToggle", moveType)
       }
     }(moveType);
-    var top = document.getElementById("topMenu");
+    var top = document.getElementById("top_menu");
     top.appendChild(toggleType);
   };
   document.head.appendChild(css);
+  document.getElementById("direction_toggle").innerHTML = "while facing RIGHT (swipe to change)";
   $(window).trigger('resize');
 });
 
@@ -147,3 +148,35 @@ $(document).ready(function() {
   MyApp.start();
   Backbone.history.start({pushState: true, hashChange: false});
 });
+
+$(document).swipe({
+  swipeRight:function(event, direction, distance, duration, fingerCount) {
+    inputs = document.getElementsByClassName("flip");
+    while(inputs.length != 0){
+      $(inputs[0]).addClass("_flip");
+      $(inputs[0]).removeClass("flip");
+    }
+    document.getElementById("direction_toggle").innerHTML =
+      "while facing RIGHT (swipe to change)";
+  },
+  swipeLeft:function(event, direction, distance, duration, fingerCount) {
+    inputs = document.getElementsByClassName("_flip");
+    while(inputs.length != 0){
+      $(inputs[0]).addClass("flip");
+      $(inputs[0]).removeClass("_flip");
+    }
+    document.getElementById("direction_toggle").innerHTML =
+      "while facing LEFT (swipe to change)";
+  }
+});
+
+// functions for click elements on the page
+function toggleTitle() {
+  var startH = document.getElementById("top_menu").clientHeight;
+  $(".title").slideToggle(400, function(){
+    $(".toggle-title").toggle();
+    $(window).trigger('resize');
+    window.scrollBy(0, document.getElementById("top_menu").clientHeight);
+    window.scrollBy(0, -startH);
+  });
+}

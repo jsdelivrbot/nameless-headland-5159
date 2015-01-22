@@ -39,5 +39,7 @@ CharacterCabinet = Backbone.Marionette.CompositeView.extend({
       // don't resize if only one column
       $(".character-table").height(0);
     }
+    // adjust the top menu and body according height
+    document.body.style.marginTop = document.getElementById("fixed_top").clientHeight + "px";
   }
 });

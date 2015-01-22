@@ -33,17 +33,24 @@
   <body>
     <!-- background from http://subtlepatterns.com/ SUPER!-->
     <!-- Locals -->
-    <div id="topMenu" class="title red" style="font-size: medium; display: inherit;">
-      <i class="fa fa-cog fa-2x selectable" id="settings" style="float: right;"></i>
-      <i class="fa fa-file fa-2x selectable" id="open" style="float: right;"></i>
-      <span class="main-title">The Command List</span><br/>
-      <span style="font-size: 18px">by Jesse and Ethan Jurman (this site is a work in progress)</span>
-      <div align="center" id="game-selector"></div>
-      <div align="center" id="character-selector"></div>
-    </div>
-    <div class="red" align="center">
-        <i class="fa fa-chevron-up toggle-title selectable" style="padding: 0px 45%;"></i>
-        <i class="fa fa-chevron-down toggle-title selectable" style="display:none; padding: 0px 45%;"></i>
+    <div id="fixed_top">
+      <div id="top_menu" class="title" style="font-size: medium; display: inherit;">
+        <!-- <i class="fa fa-cog fa-2x selectable" id="settings" style="float: right;"></i>
+        <i class="fa fa-file fa-2x selectable" id="open" style="float: right;"></i> -->
+        <span class="main-title">The Command List</span><br/>
+        <span style="font-size: 18px">by Ethan and Jesse Jurman (this site is a work in progress)</span>
+        <div align="center" id="game-selector"></div>
+        <div align="center" id="character-selector"></div>
+      </div>
+      <div class="selectable" align="center" onclick="toggleTitle()">
+          <i class="fa fa-chevron-up toggle-title"></i>
+          <i class="fa fa-chevron-down toggle-title" style="display:none;"></i>
+          <img id="left" class="_flip" height="26px" src="/img/left.gif">
+          <span id="direction_toggle"></span>
+          <i class="fa fa-chevron-up toggle-title"></i>
+          <i class="fa fa-chevron-down toggle-title" style="display:none;"></i>
+          <div id="direction_toggle2"></div>
+      </div>
     </div>
 
     <div class="local-data"
@@ -51,16 +58,10 @@
         character-data-id="<%= character %>">
     </div>
     <div align="center" id="characters"></div>
-
     <!-- scripts for page -->
     <!-- this one is used for proper table resizing -->
     <script type="text/javascript" charset="utf-8">
       $(window).trigger('resize');
-      $(".toggle-title").click(function(){
-        $(".title").slideToggle(400, function(){
-          $(".toggle-title").toggle();
-        });
-      });
     </script>
   </body>
 </html>

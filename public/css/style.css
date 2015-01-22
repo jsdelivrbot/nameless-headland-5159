@@ -33,11 +33,11 @@ body {
   /*from subtle patterns! http://subtlepatterns.com/*/
 }
 button {
-  padding: 7px;
+  padding: 5px;
+  margin: 5px;
   border-radius: 15px;
   border: 2px solid lightgray;
   background: white;
-  margin-right: 5px;
 }
 td {
   border-radius: 5px;
@@ -66,6 +66,19 @@ hr {
 #characters {
   margin: 8px;
 }
+#fixed_top {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 5;
+  padding-bottom: 7px;
+  background: rgb(11, 14, 19);
+}
+
+#direction_toggle {
+  font-size: small;
+}
+
 .title {
   color: white;
   padding: 4px 8px;
@@ -73,15 +86,16 @@ hr {
 .main-title {
   font-size: 32px;
 }
-.toggle-title:hover {
-  cursor: pointer;
+.dark {
+  color: white;
+  background: rgb(11, 14, 19);
 }
 .selectable {
-  color: white;
+  color: rgb(210, 200, 200);
   padding: 5px;
 }
 .selectable:hover {
-  color: rgb(230, 220, 220);
+  color: white;
   cursor: pointer;
 }
 .custom-button {
@@ -99,10 +113,6 @@ hr {
   /*border-color: rgb(160, 60, 60);*/
   background: rgb(184, 81, 81);
 }
-.red-grad {
-  border-color: rgb(160, 60, 60);
-  background: linear-gradient(rgb(184, 81, 81),rgb(160, 60, 60));
-}
 .blue {
   /*border-color: rgb(60, 60, 160);*/
   background: rgb(81, 81, 184);
@@ -113,7 +123,7 @@ hr {
 }
 .raised-button {
   border-top-width: 1px;
-  border-bottom-width: 3px;
+  border-bottom-width: 5px;
 }
 .pressed-button {
   border-top-width: 3px;
@@ -134,7 +144,7 @@ table.character-table {
   color: black;
   font-weight: bold;
   text-align: left;
-  padding: 0px 2px;
+  padding: 0px 5px;
 }
 .move-exec {
   text-align: center;
@@ -154,17 +164,35 @@ table.character-table {
 .hide {
   display: none;
 }
-
+.color {
+	filter: grayscale(0);
+	-webkit-filter: grayscale(0);
+	-moz-filter: grayscale(0);
+	-o-filter: grayscale(0);
+	-ms-filter: grayscale(0);
+}
+.gray {
+  filter: grayscale(1);
+  -webkit-filter: grayscale(1);
+  -moz-filter: grayscale(1);
+  -o-filter: grayscale(1);
+  -ms-filter: grayscale(1);
+}
 .img-input {
   height: 1.8em;
 }
 .img-input>span {
   height: 1.2em;
 }
+
 /* rotations for directional inputs */
-.custom-button>span>img {
+.custom-button>span>img{
   height: 1.2em;
   padding-top: 0.17em;
+}
+.custom-button>img {
+  height: 1.5em;
+  padding-bottom: 0.1em;
 }
 .custom-button>span>img.rotate2 {
   padding-top: 0em;
@@ -194,7 +222,15 @@ table.character-table {
   padding-bottom: 0.085em;
   padding-right: 0.085em;
 }
-.rotate1 {
+.flip {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+  filter: FlipH;
+}
+
+.rotate1, .rotate3.flip {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
@@ -208,28 +244,28 @@ table.character-table {
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
 }
-.rotate3 {
+.rotate3, .rotate1.flip{
   -webkit-transform: rotate(-135deg);
   -moz-transform: rotate(-135deg);
   -o-transform: rotate(-135deg);
   -ms-transform: rotate(-135deg);
   transform: rotate(-135deg);
 }
-.rotate4 {
+.rotate4, .rotate6.flip {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   transform: rotate(0deg);
 }
-.rotate6 {
+.rotate6, .rotate4.flip {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -o-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.rotate7 {
+.rotate7, .rotate9.flip {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
   -o-transform: rotate(45deg);
@@ -243,7 +279,7 @@ table.character-table {
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-.rotate9 {
+.rotate9, .rotate7.flip {
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
   -o-transform: rotate(135deg);

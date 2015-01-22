@@ -20,7 +20,8 @@ class App < Sinatra::Base
       '/js/vendors/underscore.js',
       '/js/vendors/jquery.js',
       '/js/vendors/backbone.js',
-      '/js/vendors/backbone.marionette.js'
+      '/js/vendors/backbone.marionette.js',
+      '/js/vendors/jquery.touchSwipe.min.js'
     ]
     js :helpers, [
       '/js/Helpers/*.js'
