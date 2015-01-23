@@ -166,7 +166,7 @@ MyApp.gameStation.vent.on("page:selected", function(page) {
     moves[i].style.display = "";
   }
   if (page !== "All Pages"){
-    var hideMoves = document.querySelectorAll('tr[page]:not([page=*"'+page+';"])');
+    var hideMoves = document.querySelectorAll('tr[page]:not([page*="'+page+';"])');
     for (i=0; i < hideMoves.length; i++){
       hideMoves[i].style.display = "none";
     }

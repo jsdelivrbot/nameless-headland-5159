@@ -10,8 +10,8 @@ ColorMap = function(color){
     case "blue":
       newColor = "rgb(81, 81, 184)"
       break;
-    case "yellow":
-      newColor = "rgb(184, 184, 81)"
+    case "tan":
+      newColor = "rgb(210, 180, 140)"
       break;
     case "teal":
       newColor = "rgb(81, 184, 184)"
@@ -24,6 +24,9 @@ ColorMap = function(color){
       break;
     case "lightgray":
       newColor = "rgb(184, 184, 184)"
+      break;
+    default:
+      newColor = color
       break;
   }
   return newColor;
