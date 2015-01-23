@@ -7,6 +7,7 @@ MyApp = new Backbone.Marionette.Application();
 MyApp.addRegions({
   gameSelector: "#game-selector",
   characterSelector: "#character-selector",
+  pageSelector: "#page-selector",
   characters: "#characters"
 });
 
@@ -46,7 +47,6 @@ MyApp.addInitializer( function(options) {
     // Trigger the select event
     MyApp.gameStation.vent.trigger("character:selected", characterId);
   }
-
 });
 
 // Setup MyApp radio (should totally be replaced by Backbone.Radio eventually)
@@ -98,6 +98,22 @@ MyApp.gameStation.vent.on("game:selected", function(gameId) {
   });
   MyApp.characterSelector.show( charactersDropdown );
 
+  // Build the page list
+  var pages = new Backbone.Collection(game.get("pages"));
+  if (pages.length > 1){
+    pages.each(function(v,k){
+      v.set("name", v.values().join(""));
+    });
+
+    // Build the page dropdown view
+    var pageDropdown = new PageDropdown({
+      collection: pages
+    });
+    MyApp.pageSelector.show( pageDropdown );
+    document.getElementById("page-selector").style.display = "";
+  } else {
+    document.getElementById("page-selector").style.display = "none";
+  }
   // Build the characters view under the dropdowns
   var characterCab = new CharacterCabinet({
     collection: characters
@@ -140,7 +156,22 @@ MyApp.gameStation.vent.on("character:selected", function(characterId) {
   MyApp.router.navigate(MyApp.gameId+"/"+characterId, false);
 
   // Scroll to the character view
-  $("html, body").scrollTop($("table[id="+characterId+"]").offset().top);
+  $("html, body").scrollTop($("table[id="+characterId+"]").offset().top
+    - document.getElementById("fixed_top").clientHeight);
+});
+// Event trigger when a page is selected
+MyApp.gameStation.vent.on("page:selected", function(page) {
+  var moves = document.querySelectorAll('tr[page]');
+  for (i=0; i < moves.length; i++){
+    moves[i].style.display = "";
+  }
+  if (page !== "All Pages"){
+    var hideMoves = document.querySelectorAll('tr[page]:not([page=*"'+page+';"])');
+    for (i=0; i < hideMoves.length; i++){
+      hideMoves[i].style.display = "none";
+    }
+  }
+  $(window).trigger('resize');
 });
 
 // When the page loads, kick off the app!

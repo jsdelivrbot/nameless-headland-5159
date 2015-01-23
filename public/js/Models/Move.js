@@ -2,6 +2,9 @@
 Move = Backbone.Model.extend({
   initialize: function() {
     this.set({
+      "name": this.name("name")
+    })
+    this.set({
       "execHTML": this.imageFormat("exec")
     });
     this.set({
@@ -22,6 +25,14 @@ Move = Backbone.Model.extend({
     this.set({
       "prereqCount": this.prereqCount()
     });
+    this.set({
+      "page": this.page()
+    });
+  },
+  name: function(dataType){
+    var name = this.get(dataType);
+    var pad = (name.match(/\\t/g) || []).length * 20 - 10 + "px";
+    return name.replace(/[\\t]*\\\-\>(.*)/,'<span><img class="after" style="margin-left:'+pad+'" src="/img/96_after.png"/></span>$1');
   },
   imageFormat: function(dataType) {
     // setting up the move/note for avaliable images
@@ -176,5 +187,8 @@ Move = Backbone.Model.extend({
     } else {
       return this.get("prereq").split("&").length;
     }
+  },
+  page: function(){
+    return this.get("page")
   }
 });

@@ -121,6 +121,9 @@ hr {
   /*border-color: rgb(60, 160, 60);*/
   background: rgb(81, 184, 81);
 }
+.tan {
+  background: tan;
+}
 .raised-button {
   border-top-width: 1px;
   border-bottom-width: 5px;
@@ -145,6 +148,10 @@ table.character-table {
   font-weight: bold;
   text-align: left;
   padding: 0px 5px;
+}
+.after {
+  margin: -20px 0px -10px -10px;
+  height: 40px;
 }
 .move-exec {
   text-align: center;

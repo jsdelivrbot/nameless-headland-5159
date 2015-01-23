@@ -37,6 +37,8 @@ class App < Sinatra::Base
       '/js/Views/GamesDropdown.js',
       '/js/Views/CharacterOption.js',
       '/js/Views/CharactersDropdown.js',
+      '/js/Views/PageOption.js',
+      '/js/Views/PageDropdown.js',
       '/js/Views/MoveView.js',
       '/js/Views/CharacterView.js',
       '/js/Views/CharacterCabinet.js'
