@@ -80,6 +80,53 @@ Move = Backbone.Model.extend({
       return span;
     };
 
+    customButtonSVG = function(location, backgroundColor, fontColor, text){
+      var cir = document.createElement("circle");
+      cir.setAttribute("cx",24);
+      cir.setAttribute("cy",24);
+      cir.setAttribute("r",21);
+      cir.setAttribute("stroke","black");
+      cir.setAttribute("stroke-width",4);
+      cir.setAttribute("fill",backgroundColor);
+      location.appendChild(cir);
+
+      setTextAttr = function(e, fontColor, y, fontSize, text){
+        if (text.length > 1){
+          e.setAttribute("textLength", 32);
+          e.setAttribute("lengthAdjust", "spacingAndGlyphs");
+        }
+        e.setAttribute("class","button-text");
+        e.setAttribute("text-anchor","middle");
+        e.setAttribute("x", 24);
+        e.setAttribute("font-family", "impact");
+        e.setAttribute("fill",fontColor);
+        e.setAttribute("style","font-size:"+fontSize+"px");
+        e.setAttribute("y",y);
+        e.innerHTML = text
+      }
+
+      if (text.length > 2){
+        if (~text.indexOf(" ")) {
+          // two lines, space to split words
+          t = text.split(" ");
+          for (var i=0; i < t.length; i++){
+            var textNode = document.createElement("text");
+            setTextAttr(textNode, fontColor, 22 + (i*14), 14, t[i]);
+            location.appendChild(textNode);
+          }
+        } else {
+          // one line
+          var textNode = document.createElement("text");
+          setTextAttr(textNode, fontColor, 34, 24, text);
+          location.appendChild(textNode);
+        }
+      } else {
+        // one line, 2 or less characters
+        var textNode = document.createElement("text");
+        setTextAttr(textNode, fontColor, text.length == 2 ? 37 : 39, 36 - (text.length - 1)*3, text);
+        location.appendChild(textNode);
+      }
+    }
     var html = document.createElement("div");
     // returns a string of a img tag holding the correct image from the input command
     if (match.match(/(\[[012346789]\])/g)){
@@ -88,11 +135,15 @@ Move = Backbone.Model.extend({
     if (match.match(/(\[h[012346789]\])/g)){
       html.appendChild(mergeButtons(["/img/96_input_yellow_arrow.png","/img/96_hold.png"],["img-input _flip rotate" + match[2],"img-input"]));
     }
-    if (match.match(/\[(white|gray|black|red|yellow|orange|green|teal|purple|blue)-(w|b)-([^\]]*)\]/g)){
-      var matches = /\[(white|gray|black|red|yellow|orange|green|teal|purple|blue)-(w|b)-([^\]]*)\]/g.exec(match);
-      html.appendChild(mergeButtons([
-        "/img/96_button_" + matches[1] + ".png",
-        "/img/96_" + (matches[2] == "w" ? "white" : "black") + "_" + matches[3] + ".png"],"img-input"));
+    if (match.match(/\[([^\]]*)-([^\]]*)-([^\]]*)\]/g)){
+      var matches = /\[([^\]]*)-([^\]]*)-([^\]]*)\]/g.exec(match);
+      // svg for making custom button
+      var svg = document.createElement("svg");
+      svg.setAttribute("width", "2em");
+      svg.setAttribute("height", "2em");
+      svg.setAttribute("viewbox", "0 0 48 48");
+      customButtonSVG(svg, matches[1], matches[2], matches[3]);
+      html.appendChild(svg);
     }
     switch(match){
       case "[lk]":

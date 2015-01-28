@@ -1,3 +1,7 @@
+@font-face {
+    font-family: impact;
+    src: url(../fonts/impact.ttf);
+}
 @media (max-device-width:500px){
   .character-table {width: 100%;}
   html * {font-size: x-large;}
@@ -54,6 +58,9 @@ select {
   font-size: 20px;
   border: 2px solid black;
 }
+svg {
+  vertical-align: middle;
+}
 img {
   vertical-align: middle;
 }
@@ -97,6 +104,9 @@ hr {
 .selectable:hover {
   color: white;
   cursor: pointer;
+}
+.button-text {
+  font-family: impact;
 }
 .custom-button {
   border-radius: 30px;
@@ -186,7 +196,7 @@ table.character-table {
   -ms-filter: grayscale(1);
 }
 .img-input {
-  height: 1.8em;
+  height: 2em;
 }
 .img-input>span {
   height: 1.2em;
